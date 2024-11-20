@@ -29,8 +29,10 @@ if (isset($_REQUEST['data'])) {
     if ($expected_signature === $provided_signature) {
         // Signature matches, proceed with processing
         echo "Payment verification successful. Transaction Code: " . $transaction_code . "<br>";
-        // Update the order status to 'failed' and set updated_at timestamp
+
+        // Update the order status to 'complete' and set updated_at timestamp
         $updated_at = date('Y-m-d H:i:s');
+
 
         // Update the order status in the database
         $sql = "UPDATE orders SET status = '$status', updated_at = '$updated_at' WHERE invoice_no = '$transaction_uuid'";
@@ -47,4 +49,8 @@ if (isset($_REQUEST['data'])) {
     echo "Invalid request!";
     exit();
 }
+
 $conn->close();
+?>
+
+<a href="/EsewaIntegration">Back to Home Page</a>

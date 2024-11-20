@@ -51,65 +51,66 @@ $conn->close();
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <h1 class="header-title">E-Pasal</h1>
-        <nav class="header-nav">
-            <a href="#">Home</a>
-            <a href="#">Products</a>
-            <a href="#">Cart</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+<!-- Header -->
+<header class="header">
+    <h1 class="header-title">E-Pasal</h1>
+    <nav class="header-nav">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Cart</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
 
-    <!-- Main Content -->
-    <main class="checkout-container">
-        <section class="order-details">
-            <h2>Order Summary</h2>
-            <img alt="product-image" src="<?php echo $row['image'] ?>" class="order-image" />
-            <p><strong>Product Name:</strong> <?php echo $title ?></p>
-            <p><strong>Price:</strong> Rs. <?php echo $total; ?></p>
-            <p><strong>Invoice No:</strong> <?php echo $invoice_no; ?></p>
-        </section>
-        <hr>
-        <section class="payment-options">
-            <h2>Payment Options</h2>
-            <ul>
-                <li>
-                    <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">
-                        <input type="hidden" id="amount" name="amount" value="<?php echo $total; ?>">
-                        <input type="hidden" id="tax_amount" name="tax_amount" value="0">
-                        <input type="hidden" id="total_amount" name="total_amount" value="<?php echo $total; ?>">
-                        <input type="hidden" id="transaction_uuid" name="transaction_uuid" value="<?php echo $invoice_no; ?>">
-                        <input type="hidden" id="product_code" name="product_code" value="EPAYTEST">
-                        <input type="hidden" id="product_service_charge" name="product_service_charge" value="0">
-                        <input type="hidden" id="product_delivery_charge" name="product_delivery_charge" value="0">
-                        <input type="hidden" id="success_url" name="success_url" value="http://localhost/EsewaIntegration/success.php">
-                        <input type="hidden" id="failure_url" name="failure_url" value="http://localhost/EsewaIntegration/failure.php">
-                        <input type="hidden" id="signed_field_names" name="signed_field_names" value="total_amount,transaction_uuid,product_code">
-                        <input type="hidden" id="signature" name="signature" value="<?php echo $signature_base64; ?>">
-                        <input class="payment-icon" type="image" src="images/esewa_og.webp">
-                </li>
-                <li>
-                    <img class="payment-icon" src="images/khalti.png" alt="Khalti">
-                </li>
-                <li>
-                    <img class="payment-icon" src="images/imepay.png" alt="IME Pay">
-                </li>
-                <li>
-                    <img class="payment-icon" src="images/fonepay.png" alt="Fonepay">
-                </li>
-                <li>
-                    <img class="payment-icon" src="images/connectips.png" alt="Connect IPS">
-                </li>
-            </ul>
-        </section>
-    </main>
+<!-- Main Content -->
+<main class="checkout-container">
+<section class="order-details">
+    <h2>Order Summary</h2>
+    <img alt="product-image" src="<?php echo $row['image'] ?>" class="order-image" />
+    <p><strong>Product Name:</strong> <?php echo $title ?></p>
+    <p><strong>Price:</strong> Rs. <?php echo $total; ?></p>
+    <p><strong>Invoice No:</strong> <?php echo $invoice_no; ?></p>
+</section>
+<hr>
+<section class="payment-options">
+<h2>Payment Options</h2>
+<ul>
+<li>
+<form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">
+    <input type="hidden" id="amount" name="amount" value="<?php echo $total; ?>">
+    <input type="hidden" id="tax_amount" name="tax_amount" value="0">
+    <input type="hidden" id="total_amount" name="total_amount" value="<?php echo $total; ?>">
+    <input type="hidden" id="transaction_uuid" name="transaction_uuid" value="<?php echo $invoice_no; ?>">
+    <input type="hidden" id="product_code" name="product_code" value="EPAYTEST">
+    <input type="hidden" id="product_service_charge" name="product_service_charge" value="0">
+    <input type="hidden" id="product_delivery_charge" name="product_delivery_charge" value="0">
+    <input type="hidden" id="success_url" name="success_url" value="http://localhost/EsewaIntegration/result.php">
+    <input type="hidden" id="failure_url" name="failure_url" value="http://localhost/EsewaIntegration/result.php">
+    <input type="hidden" id="signed_field_names" name="signed_field_names" value="total_amount,transaction_uuid,product_code">
+    <input type="hidden" id="signature" name="signature" value="<?php echo $signature_base64; ?>">
+    <input class="payment-icon" type="image" src="images/esewa_og.webp">
+</form>
+</li>
+<li>
+    <img class="payment-icon" src="images/khalti.png" alt="Khalti">
+</li>
+<li>
+    <img class="payment-icon" src="images/imepay.png" alt="IME Pay">
+</li>
+<li>
+    <img class="payment-icon" src="images/fonepay.png" alt="Fonepay">
+</li>
+<li>
+    <img class="payment-icon" src="images/connectips.png" alt="Connect IPS">
+</li>
+</ul>
+</section>
+</main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 E-Pasal. All rights reserved.</p>
-    </footer>
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 E-Pasal. All rights reserved.</p>
+</footer>
 </body>
 
 </html>
